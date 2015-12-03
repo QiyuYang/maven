@@ -24,7 +24,7 @@
     <title>PNINFO查询界面</title>
 </head>
 
-<form action="/search.do" method="POST">
+<form action="/search.json" method="POST">
 
 
     P/n:<input type="text" name="p_pn" id="p_pn">
