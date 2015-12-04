@@ -14,12 +14,12 @@ public class PninfoEntity {
     String p_owner = null;
     String p_station = null;
     String p_stock = null;
-    Float p_spec = null;
-    Float p_sup = null ;
-    Float p_exch = null ;
-    Float p_scrap = null;
-    Float p_qty = null;
-    String p_orderby = null;
+    float p_spec = 0;
+    float p_sup = 0 ;
+    float p_exch = 0 ;
+    float p_scrap = 0;
+    float p_qty = 0;
+    String p_orderby;
     Float p_pnid ;
 
     public String getP_pn() {
@@ -102,43 +102,43 @@ public class PninfoEntity {
         this.p_stock = p_stock;
     }
 
-    public Float getP_spec() {
+    public float getP_spec() {
         return p_spec;
     }
 
-    public void setP_spec(Float p_spec) {
+    public void setP_spec(float p_spec) {
         this.p_spec = p_spec;
     }
 
-    public Float getP_sup() {
+    public float getP_sup() {
         return p_sup;
     }
 
-    public void setP_sup(Float p_sup) {
+    public void setP_sup(float p_sup) {
         this.p_sup = p_sup;
     }
 
-    public Float getP_exch() {
+    public float getP_exch() {
         return p_exch;
     }
 
-    public void setP_exch(Float p_exch) {
+    public void setP_exch(float p_exch) {
         this.p_exch = p_exch;
     }
 
-    public Float getP_scrap() {
+    public float getP_scrap() {
         return p_scrap;
     }
 
-    public void setP_scrap(Float p_scrap) {
+    public void setP_scrap(float p_scrap) {
         this.p_scrap = p_scrap;
     }
 
-    public Float getP_qty() {
+    public float getP_qty() {
         return p_qty;
     }
 
-    public void setP_qty(Float p_qty) {
+    public void setP_qty(float p_qty) {
         this.p_qty = p_qty;
     }
 

@@ -23,15 +23,14 @@
 <div style="margin:20px 0;"></div>
 
 <table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
-       data-options="singleSelect:true,collapsible:true,url:'${pageContext.request.contextPath}/css/table.json',method:'get'">
+       data-options="singleSelect:true,collapsible:true,url:'/ajaxsearch.json',method:'get'">
     <thead>
     <tr>
-        <th data-options="field:'vendor_bn',width:80">vendor_bn</th>
-        <th data-options="field:'inventorylock',width:100">rejectiontext</th>
+        <th data-options="field:'vendor',width:80">vendor_bn</th>
+        <th data-options="field:'inventorylock',width:100">inventorylock</th>
         <th data-options="field:'rejectiontext',width:80,align:'right'">rejectiontext</th>
         <th data-options="field:'supplier',width:80,align:'right'">supplier</th>
-        <th data-options="field:'pn_class',width:250">pn_class</th>
-        <th data-options="field:'priceeach',width:60,align:'center'">priceeach</th>
+
 
 <%--        <th data-options="field:'itemid',width:80">Item ID</th>
         <th data-options="field:'productid',width:100">Product</th>

@@ -1,13 +1,13 @@
 <%--
   Created by IntelliJ IDEA.
   User: 齐宇
-  Date: 2015/11/4
-  Time: 10:51
+  Date: 2015/12/4
+  Time: 14:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<!DOCTYPE html>
 <html>
 <head>
     <!-- 新 Bootstrap 核心 CSS 文件 -->
@@ -21,10 +21,49 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/easyui/demo.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.easyui.min.js"></script>
     <title>PNINFO查询界面</title>
+    <script>
+        $(document).ready(function(){
+            loadGrid();
+        });
+        var alist={};
+    function ss(){
+        var baseUrl = "/search";
+        var queryData = {};
+        var pn = $("input[name='p_pn']").val();
+        queryData.p_pn = pn;
+        console.log(queryData);
+        $.ajax({
+            url: baseUrl,
+            type: "Post",
+            data: queryData,
+            dataType: "JSON",
+            timeout: 60000,
+            success: function( response ) {
+                console.log(response);
+                alist.total = response.pnifocurBOList.length;
+                alist.rows= response.pnifocurBOList;
+                console.log(alist);
+                $("#result").datagrid('load',alist)
+            },
+            error: function( response) {
+                console.log(response);
+            },
+            complete:function(response){
+
+            }
+        });
+    };
+
+    </script>
 </head>
 
-<form action="/ajaxserach.json" method="POST">
+<form id="inputform"  method="POST">
 
 
     P/n:<input type="text" name="p_pn" id="p_pn">
@@ -103,8 +142,47 @@
     <option value="P/n - S/n">P/n - S/n</option>
 </select>
 
-    <input type="submit" value="搜索">
+
 
 </form>
+<button id="ajax-btn" onclick="ss();">ajaxSearch</button>
+
+<div class="result">
+
+    <table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px">
+        <thead>
+        <tr>
+            <th data-options="field:'vendor',width:80">vendor_bn</th>
+            <th data-options="field:'inventorylock',width:100">rejectiontext</th>
+            <th data-options="field:'rejectiontext',width:80,align:'right'">rejectiontext</th>
+            <th data-options="field:'supplier',width:80,align:'right'">supplier</th>
+
+
+            <%--        <th data-options="field:'itemid',width:80">Item ID</th>
+                    <th data-options="field:'productid',width:100">Product</th>
+                    <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                    <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                    <th data-options="field:'attr1',width:250">Attribute</th>
+                    <th data-options="field:'status',width:60,align:'center'">Status</th>--%>
+
+        </tr>
+        </thead>
+    </table>
+
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
 </body>
 </html>

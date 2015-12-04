@@ -3,11 +3,11 @@ package model;
 import java.util.List;
 
 /**
- * Created by 齐宇 on 2015/12/3.
+ * Created by 齐宇 on 2015/12/4.
  */
-public class TableBO {
+public class DataGridDto {
     private int total;
-    private List<TableList> rows;
+    private List rows;
 
     public int getTotal() {
         return total;
@@ -17,11 +17,11 @@ public class TableBO {
         this.total = total;
     }
 
-    public List<TableList> getRows() {
+    public List getRows() {
         return rows;
     }
 
-    public void setRows(List<TableList> rows) {
+    public void setRows(List rows) {
         this.rows = rows;
     }
 }
